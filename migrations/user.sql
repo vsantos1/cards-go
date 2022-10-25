@@ -1,7 +1,7 @@
 CREATE TABLE user (
     id INTEGER PRIMARY KEY,
-    user_name string NOT NULL,
-    password string NOT NULL,
+    user_name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     email string NOT NULL UNIQUE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP

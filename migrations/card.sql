@@ -1,12 +1,13 @@
 
 CREATE TABLE card (
-  	id INTEGER PRIMARY KEY,
-    user_id INTEGER,
-    card_owner string NOT NULL,
-    card_number int NOT NULL,
-    card_type string NOT NULL,
-    card_cvv int NOT NULL,
-    card_expiry DATE NOT NULL,
+  	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    user_id INTEGER UNIQUE,
+    card_owner VARCHAR(255) NOT NULL,
+    card_number VARCHAR(255) NOT NULL,
+    card_type VARCHAR(255) NOT NULL,
+  	card_limit FLOAT,
+    card_cvv INTEGER NOT NULL,
+    card_expiry VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id)
