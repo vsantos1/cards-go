@@ -64,7 +64,7 @@ func Create(u *models.User) UserRepository {
 }
 
 
-func UpdateBalance(id int,u *models.User) UserRepository {
+func Update(id int,u *models.User) UserRepository {
 
 	db,_ := database.Connect()
 	

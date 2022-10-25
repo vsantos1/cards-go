@@ -24,7 +24,7 @@ func UpdateUser(ctx *fiber.Ctx) error {
 	}
 	rep.User.Password = utils.MD5(rep.User.Password)
 	
-	res := repository.UpdateBalance(id,rep.User)
+	res := repository.Update(id,rep.User)
 	
 	if res.Err != nil {
 		return ctx.Status(400).JSON(fiber.Map{
