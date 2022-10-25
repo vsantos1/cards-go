@@ -11,11 +11,13 @@ import (
 
 
 func  Connect() (*sqlx.DB, error) {
-	db, err := sqlx.Connect("mysql", "root:root@tcp(localhost:3306)/bank_go?parseTime=true")
+	db, err := sqlx.Connect("mysql", "root:root@(localhost:3306)/bank_go?parseTime=true")
 
 	if err != nil {
 		log.Fatalf("Error connecting to database: %v", err)
 	}
+
+
 	return db,nil
 
 }
