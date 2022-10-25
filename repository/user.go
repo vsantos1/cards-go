@@ -6,6 +6,7 @@ import (
 
 	"github.com/vsantos1/bank-go/database"
 	"github.com/vsantos1/bank-go/models"
+	"github.com/vsantos1/bank-go/utils"
 )
 
 type UserRepository struct {
@@ -62,11 +63,12 @@ func Create(u *models.User) UserRepository {
 	}
 }
 
+
 func UpdateBalance(id int,u *models.User) UserRepository {
 
 	db,_ := database.Connect()
 	
-	_,err := db.Exec("UPDATE user SET user_name = ?, pass_word = ?, email = ?, balance = ? WHERE id = ?", u.Username,u.Password, u.Email, u.Balance, id)
+	_,err := db.Exec("UPDATE user SET user_name = ?, pass_word = ?, email = ?, balance = ?, updated_at =? WHERE id = ?", u.Username,u.Password, u.Email, u.Balance,utils.FormattedDate(), id)
 	if err != nil {
 		return UserRepository {
 			Err: err,
