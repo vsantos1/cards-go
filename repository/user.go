@@ -62,11 +62,11 @@ func Create(u *models.User) UserRepository {
 	}
 }
 
-func Update(u *models.User) UserRepository {
+func UpdateBalance(id int,u *models.User) UserRepository {
 
 	db,_ := database.Connect()
 	
-	_,err := db.Exec("UPDATE user SET username = ?, password = ?, email = ?, balance = ?, card = ? WHERE id = ?", u.Username, u.Email, u.Balance, u.ID)
+	_,err := db.Exec("UPDATE user SET user_name = ?, pass_word = ?, email = ?, balance = ? WHERE id = ?", u.Username,u.Password, u.Email, u.Balance, id)
 	if err != nil {
 		return UserRepository {
 			Err: err,
